@@ -2,6 +2,8 @@
 
 Connect an AI assistant to your existing [Skysay](https://skysay.ai) workspace to inspect and manage voice agents, phone numbers, calls, SMS and campaigns.
 
+Number availability, capabilities and verification requirements vary by country. 100+ countries covered.
+
 This repository distributes public connection configuration and metadata for Skysay's hosted MCP service. It does **not** contain the hosted application's source code, credentials, or customer data.
 
 ## Connect
