@@ -1,0 +1,9 @@
+{
+  "name": "skysay",
+  "version": "0.1.0",
+  "description": "Connect to your Skysay workspace to manage voice agents, phone numbers, calls, SMS and campaigns.",
+  "author": { "name": "Skysay", "email": "hello@skysay.ai", "url": "https://skysay.ai" },
+  "homepage": "https://skysay.ai",
+  "repository": "https://github.com/skysay-ai/skysay-mcp",
+  "keywords": ["telephony", "voice-agents", "calls", "sms", "campaigns"]
+}

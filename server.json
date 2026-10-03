@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.skysay-ai/skysay",
+  "title": "Skysay",
+  "description": "Manage voice agents, phone numbers, calls, SMS and campaigns in your Skysay workspace.",
+  "repository": { "url": "https://github.com/skysay-ai/skysay-mcp", "source": "github" },
+  "websiteUrl": "https://skysay.ai/docs/mcp",
+  "version": "0.1.0",
+  "remotes": [{ "type": "streamable-http", "url": "https://api.skysay.ai/mcp" }]
+}
