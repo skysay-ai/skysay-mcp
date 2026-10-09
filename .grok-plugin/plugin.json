@@ -5,5 +5,6 @@
   "author": { "name": "Skysay", "email": "hello@skysay.ai", "url": "https://skysay.ai" },
   "homepage": "https://skysay.ai",
   "repository": "https://github.com/skysay-ai/skysay-mcp",
+  "license": "MIT",
   "keywords": ["telephony", "voice-agents", "calls", "sms", "campaigns"]
 }

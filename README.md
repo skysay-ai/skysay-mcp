@@ -43,7 +43,12 @@ For a fixed read-only connection, use `https://api.skysay.ai/mcp/read-only`. It 
 - `.mcp.json`: remote OAuth-capable MCP configuration, without credentials.
 - `plugin.json`: portable display metadata for the connection package.
 - `.claude-plugin/plugin.json` and `.grok-plugin/plugin.json`: client plugin metadata.
+- `LICENSE`: MIT license for this repository's files.
 - `server.json`: proposed Official MCP Registry metadata. Inclusion in this repository does **not** mean registry publication or marketplace approval.
+
+## License
+
+[MIT](LICENSE). The license covers the files in this repository. Use of the hosted Skysay service is governed by Skysay's [terms](https://skysay.ai/terms).
 
 ## Support
 
