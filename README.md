@@ -36,7 +36,7 @@ For clients using API keys, follow the setup guide to supply the key locally as 
 
 Read workspace activity, agent configuration, phone numbers and call/campaign status. Supported configuration, calling, SMS and campaign actions require the corresponding permissions. Availability depends on account capabilities and service configuration. Calling, messaging, number provisioning, voice previews and simulations may incur charges under your Skysay account. See [pricing](https://skysay.ai/pricing).
 
-For a fixed read-only connection, use `https://api.skysay.ai/mcp/read-only`. It exposes `account_overview`, `list_agents`, `get_agent`, `list_numbers` and `list_calls`, without recordings or transcripts. Its OAuth resource and tokens are separate from the full endpoint.
+For a fixed read-only connection, use `https://api.skysay.ai/mcp/read-only`. It exposes `account_overview`, `list_agents`, `get_agent`, `list_numbers` and `list_calls`. Agent configuration includes user-authored prompts. Call metadata can include recording status and existing media links; the connector has no tool to fetch audio files or transcripts. Its OAuth resource and tokens are separate from the full endpoint.
 
 ## Package contents
 
