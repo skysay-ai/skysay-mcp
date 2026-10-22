@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "skysay": {
+      "url": "https://api.skysay.ai/mcp"
+    }
+  }
+}
