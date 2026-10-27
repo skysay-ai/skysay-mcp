@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "skysay": {
+      "type": "streamable-http",
       "url": "https://api.skysay.ai/mcp"
     }
   }

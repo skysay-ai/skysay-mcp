@@ -5,7 +5,8 @@
   "description": "Give your agent a real phone number. Check coverage, get a number, place AI voice calls and send SMS through Skysay's hosted MCP with OAuth. The included skill shows costs and asks before any call, text or purchase. 100+ countries covered.",
   "author": {
     "name": "Skysay",
-    "email": "hello@skysay.ai"
+    "email": "hello@skysay.ai",
+    "url": "https://skysay.ai"
   },
   "publisher": "Skysay",
   "homepage": "https://skysay.ai/docs/grok-bot",
@@ -19,6 +20,7 @@
   ],
   "category": "communication",
   "logo": "assets/logo.svg",
+  "primaryColor": "#37C9D8",
   "skills": "./skills/",
   "mcpServers": "./mcp.json"
 }
