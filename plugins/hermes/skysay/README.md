@@ -15,6 +15,24 @@ Inspect your Skysay workspace, voice agents, phone numbers and call activity fro
 
 Try: “Using only my Skysay read-only connection, summarize my workspace and list its voice agents. Don't include personal phone numbers.”
 
+### If the browser approves but sign-in fails
+
+If Hermes reports `invalid_grant: unknown authorization code`, close the old authorization tabs. In the active Hermes profile's `config.yaml`, add or update this entry under `mcp_servers` without replacing your other settings. This uses dynamic client registration instead of Hermes's default client metadata document:
+
+```yaml
+mcp_servers:
+  skysay-readonly:
+    url: https://api.skysay.ai/mcp/read-only
+    auth: oauth
+    enabled: true
+    oauth:
+      cimd: false
+```
+
+Run `hermes mcp login skysay-readonly`, then use only the newest authorization tab and check the selected Skysay workspace before granting access. This fallback uses the same read-only endpoint and does not require an API key or client secret.
+
+To switch workspaces, revoke the old grant in Skysay's Connected apps, sign in to the intended workspace, then run `hermes mcp login skysay-readonly` again.
+
 ## Access and data
 
 - Hermes sends tool requests to `https://api.skysay.ai/mcp/read-only` over HTTPS. Results can contain workspace data and are visible to your configured Hermes model. Connect only a workspace you're authorized to share with that model.
