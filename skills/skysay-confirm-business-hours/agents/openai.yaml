@@ -1,0 +1,4 @@
+interface:
+  display_name: "Confirm business hours with Skysay"
+  short_description: "Verify branch opening times and holiday hours"
+  default_prompt: "Use $skysay-confirm-business-hours to confirm this branch’s hours by phone."

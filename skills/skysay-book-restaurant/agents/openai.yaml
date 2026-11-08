@@ -1,0 +1,4 @@
+interface:
+  display_name: "Book a restaurant with Skysay"
+  short_description: "Call a restaurant and verify the reservation"
+  default_prompt: "Use $skysay-book-restaurant to arrange my restaurant reservation."

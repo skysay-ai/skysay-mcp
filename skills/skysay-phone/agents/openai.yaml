@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skysay phone tasks"
+  short_description: "Complete phone tasks with Skysay call evidence"
+  default_prompt: "Use $skysay-phone to prepare this phone task and check the result."
