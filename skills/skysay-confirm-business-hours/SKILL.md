@@ -7,6 +7,8 @@ description: Call a business through Skysay to confirm opening hours for a parti
 
 Use the [Skysay phone skill](../skysay-phone/SKILL.md) and its [calling workflow](../skysay-phone/references/phone-tasks.md) for connection, authorization, call submission and evidence. This skill defines the question and the facts required for success.
 
+Before calling `create_outbound_call`, load both shared files and satisfy their authorization and submit-once steps. If either file is unavailable, stop and repair the installation before dialling.
+
 ## Resolve the question
 
 Identify the business and branch, verified phone number, the specific date or weekday schedule to check, and the branch's timezone. Resolve “tomorrow” to a calendar date. Distinguish public opening hours from a specific service's hours, such as the kitchen, pharmacy counter, deliveries or last admission. Ask for the service or date when ambiguity changes the answer.
@@ -28,7 +30,7 @@ Use `purpose: "status_check"` when exposed. Send the instructions in `create_out
 
 ## Assess the answer
 
-An explicit answer that the business is closed on the requested date is a successful hours check. It satisfies the informational goal. Use `unavailable` when the business cannot provide the requested hours. Use `needs_user` for a wrong or ambiguous branch, or a follow-up commitment requiring a decision.
+An explicit answer that the business is closed is a successful hours check when the intended branch and requested date are confirmed. It satisfies the informational goal. Use `unavailable` when the business cannot provide the requested hours. Use `needs_user` for a wrong or ambiguous branch, or a follow-up commitment requiring a decision.
 
 Use `succeeded` only when the other party confirms the requested branch and date or schedule, the open/closed answer, and all material requested hours and service cutoffs. An automated recording can establish success when it explicitly gives those exact facts for the requested date. A generic weekly greeting alone cannot establish holiday hours. Record whether the source was a person or an automated message.
 

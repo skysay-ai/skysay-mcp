@@ -54,7 +54,6 @@ The following is a request template. Substitute IDs from the connected workspace
   "from_number_id": "<selected-caller-number-id>",
   "agent_id": "<selected-hosted-agent-id>",
   "to": "<approved-E.164-destination>",
-  "purpose": "personal_errand",
   "idempotency_key": "<one-unique-key-for-this-approved-attempt>",
   "runtime_config": {
     "instructions": "<complete-approved-task-brief>",
@@ -63,7 +62,7 @@ The following is a request template. Substitute IDs from the connected workspace
 }
 ```
 
-Check `create_outbound_call` in the live `tools/list`. The server accepts an `idempotency_key` through its additional request properties. Some client wrappers expose a narrower schema. Use the key when the actual client accepts it. Keep an immutable copy of the submitted arguments and key before making the request. Save the returned call ID immediately.
+Check `create_outbound_call` in the live `tools/list`. Add optional `purpose` only when the client exposes it, using the actual task rather than a fixed default. The server accepts an `idempotency_key` through its additional request properties. Some client wrappers expose a narrower schema. Use the key when the actual client accepts it. Keep an immutable copy of the submitted arguments and key before making the request. Save the returned call ID immediately.
 
 An uncertain creation response is unresolved. With a call ID, inspect that call. If the schema supports idempotency, repeating the exact arguments and key can recover the original request. A new key creates a new attempt and needs authorization for another call. If the client cannot send a key, use `list_calls` to reconcile against the selected project, number, destination and request time. An empty or partial list does not prove the first request failed. If the outcome cannot be established, report `unknown` and stop before another creation request.
 
@@ -97,3 +96,5 @@ These are assistant-level labels, separate from the call's transport status. Rep
 A success estimate in `get_call_summary`, the agent's own claim or a completed call ID cannot by itself establish a reservation or other commitment. Use the other party's words and the task-specific success requirements. If a required confirmation turn is missing, use `unknown`.
 
 Calendar events, confirmation SMS, follow-up calls and saved templates are additional actions. Carry out only those the user authorized. A retry uses its own recorded attempt and follows the approved timing and attempt limit.
+
+An authorized retry after a settled call with an uncertain business outcome must reconcile any possible commitment before repeating it. Missing confirmation, a dropped call after speaking or a voicemail requesting action can still have created a reservation, order or other commitment. The follow-up brief must ask whether that action already happened and proceed only after its state is established. An uncertain creation response must first be reconciled under Submit once; a second enquiry call is not a workaround for an unresolved submission.

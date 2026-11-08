@@ -7,6 +7,8 @@ description: Book a restaurant table by phone through Skysay, negotiate within t
 
 Use the [Skysay phone skill](../skysay-phone/SKILL.md) and its [calling workflow](../skysay-phone/references/phone-tasks.md) for connection, approval, call submission and evidence. This skill supplies the reservation brief and success requirements.
 
+Before calling `create_outbound_call`, load both shared files and satisfy their authorization and submit-once steps. If either file is unavailable, stop and repair the installation before dialling.
+
 ## Collect the reservation
 
 Resolve the restaurant and branch, verified phone number, absolute date, restaurant timezone, party size and booking name. Establish the preferred time, any acceptable time window and ranked alternatives. Share a callback number only when the user supplied or approved it. Carry special requests such as seating or accessibility as requests, and verify them separately if they are essential to success.
@@ -32,8 +34,10 @@ Use `purpose: "reservation"` in the call request when the schema exposes purpose
 
 ## Assess the result
 
-Report `succeeded` only when the host's conversation confirms the booking, the exact local date and time, party size and booking name, within the approved alternatives. The voice agent's request to reserve is not confirmation. A host saying they will check and call back leaves the booking unresolved.
+Report `succeeded` only when the host's conversation confirms the booking, the exact local date and time, party size and booking name, within the approved alternatives. The voice agent's request to reserve is not confirmation. A host saying they will check and call back leaves the booking unconfirmed: report `needs_user` and identify the approved callback number if established. Do not imply this skill is monitoring incoming calls.
 
 Use `unavailable` for an explicit refusal of the requested and permitted alternatives. Use `needs_user` for a deposit, an unapproved alternative or a conditional offer needing a decision. If the confirmation turn is missing, use `unknown` even when the summary estimates success. A voicemail without confirmation uses `no_answer`.
+
+After a settled call with an `unknown` booking result, or after a voicemail requesting a booking, an authorized follow-up must first ask whether a reservation already exists under the booking name for that date, time and party size. Ask for a new booking only after the host establishes that none exists. A disconnected call after speaking can also have made a booking. Ordinary approved retries are appropriate for confirmed pre-contact failures, busy or unanswered calls only when there was no conversation or message that could have created a reservation. Reconcile an uncertain call-creation request under the shared submit-once rules before making any follow-up call.
 
 For a confirmed reservation, give the restaurant, branch, date, local time and timezone, party size, booking name, essential accommodations, reference if provided, and the Skysay call ID. Create a calendar event or send a confirmation only when that action is also authorized.

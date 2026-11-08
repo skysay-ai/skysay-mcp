@@ -32,7 +32,7 @@ The default grant is read-only: workspace, agents, call metadata, coverage, numb
 
 ## Costs
 
-Connecting is free. Phone numbers, phone calls and SMS use purchased Skysay funds. The one-time $5 welcome credit covers browser testing inside Skysay. The skills confirm the task and cost basis before a call, text, number request or top-up, and reuse explicit approval of the same complete plan. OAuth grants tool permissions, while the service applies the workspace's current readiness, funding and calling controls. [Current pricing](https://skysay.ai/pricing)
+Connecting is free. Phone numbers, phone calls and SMS use purchased Skysay funds. The one-time $5 welcome credit covers only browser testing inside Skysay. The skills confirm the task and cost basis before a call, text, number request or top-up, and reuse explicit approval of the same complete plan. This task-approval step is assistant behavior; OAuth consent and the server's workspace readiness, funding and calling controls do not verify approval of each task. [Current pricing](https://skysay.ai/pricing)
 
 ## Phone tasks
 
