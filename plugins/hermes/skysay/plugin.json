@@ -1,11 +1,18 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "skysay",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Use Skysay's customer MCP tools for AI agents, phone numbers, calls, SMS and results, with workspace-bound OAuth permissions.",
   "author": { "name": "Skysay", "email": "hello@skysay.ai", "url": "https://skysay.ai" },
   "homepage": "https://skysay.ai",
   "repository": "https://github.com/skysay-ai/skysay-mcp",
   "license": "MIT",
-  "keywords": ["mcp", "telephony", "voice-agents", "phone-numbers", "calls", "sms"]
+  "keywords": ["mcp", "telephony", "voice-agents", "phone-numbers", "calls", "sms"],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "skysay": { "trust": "untrusted" }
+      }
+    }
+  }
 }
